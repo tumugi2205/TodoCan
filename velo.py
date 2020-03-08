@@ -1,13 +1,3 @@
-# import json
-# import sys
-# import datetime
-# from datetime import datetime as dt
-# import matplotlib.pyplot as plt
-
-# arg1: user
-# arg2: task
-# FILENAME = "velocity-03-02"
-
 # TODO: ベロシティグラフを開く場合は第一引数に見たいファイル名を入れる
 # TODO: ファイル名は自動作成にする
 # TODO: TODOlistを追加
@@ -84,23 +74,6 @@ if "add" in action_command:
         else:
             todo_data[user_name]["TODO"].append({task: [assumed_time]})
             print(f'{task} add TODO.(Assumed_time: {assumed_time})')
-    # elif "doing" == action_type:
-    #     if task not in todo_data[user_name]["DOING"]:
-    #         todo_data[user_name]["DOING"] = {task: time}
-    #     else:
-    #         print(f"You doing {task} now. ")
-    #         print(f" Do you want to end this task? (y/any)")
-    #         if "y" in input():
-    #             if now_week_head not in todo_data[user_name]["DONE"]:
-    #                 todo_data[user_name]["DONE"][now_week_head] = {}
-    #             time_data = (
-    #                 dt.strptime(time, '%Y/%m/%d-%H:%M') -
-    #                 dt.strptime(todo_data[user_name]["DOING"][task],
-    #                             '%Y/%m/%d-%H:%M'))
-    #             todo_data[user_name]["DONE"][now_week_head][task] = time_data.total_seconds() / 3600
-    #             todo_data[user_name]["DOING"].pop(task)
-    #         else:
-    #             print(f"You start {task} now.")
     with open("TodoManage.json", "w") as f:
         json.dump(todo_data, f, indent=4)
 elif "do" == action_command:
