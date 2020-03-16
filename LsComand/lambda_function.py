@@ -5,8 +5,6 @@ from os.path import join, dirname
 import boto3
 from dotenv import load_dotenv
 
-# command python-lambda-local -f lambda_handler lambda_function.py event.json
-
 def lambda_handler(event, context):
     """lsコマンドが入力された時のlambda関数
     
