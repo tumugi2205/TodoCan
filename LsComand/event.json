@@ -1,7 +1,7 @@
 {
     "user_name": "nomu",
-    "action_command": "ls",
-    "action_type": "todo",
+    "command": "ls",
+    "action": "done",
     "task": "",
     "assumed_time": ""
 }
