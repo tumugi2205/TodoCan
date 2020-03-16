@@ -1,0 +1,9 @@
+{
+    "name": "AddCommand",
+    "description": "addコマンド実行時に呼び出す関数",
+    "region": "us-east-2",
+    "handler": "lambda_function.lambda_handler",
+    "role": "arn:aws:iam::984239707330:role/service-role/TodoCanAPI-role-tm1nmueb",
+    "timeout": 300,
+    "memory": 128
+  }

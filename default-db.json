@@ -1,0 +1,25 @@
+{
+    "DOING": [
+      {
+        "assumed_time": 0,
+        "start": "2020-3-16 11:10",
+        "task_name": "task1"
+      }
+    ],
+    "DONE": [
+      {
+        "assumed_time": 0,
+        "measurement_time": 3.0,
+        "finish": "2020-3-16 14:10",
+        "start": "2020-3-16 11:10",
+        "task_name": "task2"
+      }
+    ],
+    "TODO": [
+      {
+        "assumed_time": 0,
+        "task_name": "task3"
+      }
+    ],
+    "user_name": "nomu"
+  }

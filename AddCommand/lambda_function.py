@@ -1,12 +1,15 @@
 import json
 import os
 from os.path import join, dirname
+from datetime import datetime
+from datetime import datetime as dt
+from decimal import Decimal
 
 import boto3
 from dotenv import load_dotenv
 
 def lambda_handler(event, context):
-    """lsコマンドが入力された時のlambda関数
+    """addコマンドが入力された時のlambda関数
     
     Arguments:
         event {dict} -- lambda実行時に渡すデータ
@@ -18,18 +21,23 @@ def lambda_handler(event, context):
     dynamodb = connect_db()
     result_data = {}
     user_name = event["user_name"]
-    command = event["command"]
-    action = event["action"]
     task = event["task"]
+    assumed_time = event["assumed_time"]
     table = dynamodb.Table('TodoCan')
     user_data = table.get_item(Key={"user_name":user_name})["Item"]
 
-    if "todo" == action:
-        return user_data["TODO"]
-    elif "doing" == action:
-        return user_data["DOING"]
-    elif "done" == action:
-        return user_data["DONE"]
+    for todo, doing in zip(user_data["TODO"], user_data["DOING"]):
+        if task in todo["task_name"] or task in doing["task_name"]:
+            return {"error_message":"TaskAlreadyExist"}
+    add_data = {
+        "task_name":task,
+        "assumed_time":assumed_time
+    }
+    user_data["TODO"].append(add_data)
+    table.put_item(Item=user_data)
+    return user_data["TODO"]
+    
+    
 
 
 def connect_db():
