@@ -17,8 +17,10 @@ app.on('ready', function() {
   // メイン画面の表示。ウィンドウの幅、高さを指定できる
   mainWindow = new BrowserWindow({
         // ウィンドウ作成時のオプション
-        "width": 900,
-        "height": 250,
+        "width": 835,
+        "height": 210,
+        "x": 1920-823,
+        "y": 1080-210,
         "alwaysOnTop": true,
         "transparent": true,    // ウィンドウの背景を透過
         "frame": false,     // 枠の無いウィンドウ
