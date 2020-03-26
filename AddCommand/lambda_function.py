@@ -19,7 +19,6 @@ def lambda_handler(event, context):
         json -- 取得したデータをjsonで返す
     """
     dynamodb = connect_db()
-    result_data = {}
     user_name = event["user_name"]
     task = event["task"]
     assumed_time = event["assumed_time"]
